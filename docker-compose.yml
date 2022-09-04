@@ -31,6 +31,7 @@ services:
       ICON: https://raw.githubusercontent.com/cecilia-sanare/SelfHosted/main/Icons/cube.png
       OVERRIDE_ICON: "TRUE"
       MOTD: Polycule SMP Server
+      USE_AIKAR_FLAGS: "TRUE"
     tty: true
     stdin_open: true
     restart: unless-stopped
@@ -54,6 +55,7 @@ services:
       FORGEVERSION: 40.1.68
       GENERIC_PACK: /modpacks/ATM_7_Server_0.4.29.zip
       MOTD: Polycule ATM7 Server
+      USE_AIKAR_FLAGS: "TRUE"
     tty: true
     stdin_open: true
     restart: unless-stopped
