@@ -47,7 +47,8 @@ services:
     environment:
       EULA: "TRUE"
       OVERRIDE_SERVER_PROPERTIES: "TRUE"
-      MEMORY: 4G
+      SYNC_CHUNK_WRITES: "false"
+      MEMORY: 12G
       TYPE: FORGE
       VERSION: 1.18.2
       FORGEVERSION: 40.1.76
