@@ -1,0 +1,74 @@
+version: "3"
+
+services:
+  infrared:
+    container_name: infrared
+    image: haveachin/infrared:latest
+    ports:
+      - "25565:25565/tcp"
+    expose:
+      - "25565"
+    networks:
+      - minecraft
+    volumes:
+      - ${INFRARED_DIR}:/configs
+    restart: unless-stopped
+    depends_on:
+      - minecraft-smp
+      - minecraft-atm
+  
+  minecraft-smp:
+    container_name: minecraft-smp
+    image: itzg/minecraft-server:java17-alpine
+    expose:
+      - "25565"
+    environment:
+      EULA: "TRUE"
+      OVERRIDE_SERVER_PROPERTIES: "TRUE"
+      VERSION: 1.19.2
+      TYPE: SPIGOT
+      SPIGET_RESOURCES: 64346
+      ICON: https://raw.githubusercontent.com/cecilia-sanare/SelfHosted/main/Icons/cube.png
+      OVERRIDE_ICON: "TRUE"
+      MOTD: Polycule SMP Server
+    tty: true
+    stdin_open: true
+    restart: unless-stopped
+    volumes:
+      - /etc/minecraft/latest/smp:/data
+    networks:
+      - minecraft
+  
+  minecraft-atm:
+    container_name: minecraft-atm
+    image: itzg/minecraft-server:java17-alpine
+    expose:
+      - "25565"
+    environment:
+      EULA: "TRUE"
+      OVERRIDE_SERVER_PROPERTIES: "TRUE"
+      MEMORY: 4G
+      TYPE: FORGE
+      VERSION: 1.18.2
+      FORGEVERSION: 40.1.76
+      GENERIC_PACK: /modpacks/ATM_7_Server_0.4.29.zip
+      MOTD: Polycule ATM7 Server
+    tty: true
+    stdin_open: true
+    restart: unless-stopped
+    volumes:
+      - /etc/minecraft/latest/atm:/data
+      - /etc/minecraft/modpacks:/modpacks:ro
+    networks:
+      - minecraft
+  
+  # minecraft-static:
+  #   container_name: minecraft-static
+  #   image: itzg/minecraft-server
+  #   volumes:
+  #     - /etc/minecraft/latest/static:/data
+  #   networks:
+  #     - minecraft
+
+networks:
+  minecraft: {}
