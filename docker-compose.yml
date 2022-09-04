@@ -13,9 +13,6 @@ services:
     volumes:
       - ${INFRARED_DIR}:/configs
     restart: unless-stopped
-    depends_on:
-      - minecraft-smp
-      - minecraft-atm
   
   minecraft-smp:
     container_name: minecraft-smp
