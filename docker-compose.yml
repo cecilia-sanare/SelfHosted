@@ -26,7 +26,7 @@ services:
       EULA: "TRUE"
       OVERRIDE_SERVER_PROPERTIES: "TRUE"
       VERSION: 1.19.2
-      TYPE: SPIGOT
+      TYPE: PAPER
       SPIGET_RESOURCES: 64346,91722
       ICON: https://raw.githubusercontent.com/cecilia-sanare/SelfHosted/main/Icons/cube.png
       OVERRIDE_ICON: "TRUE"
