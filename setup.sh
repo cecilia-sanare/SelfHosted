@@ -20,6 +20,7 @@ for key in ${!MODPACKS[@]}; do
     if [ ! -f $outputFile ]; then
         echo "Downloading modpack from: ${MODPACKS[${key}]} ..."
         curl ${MODPACKS[${key}]} --output $outputFile
+        chown minecraft:docker $outputFile
     fi
 done
 

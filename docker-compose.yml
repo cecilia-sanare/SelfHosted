@@ -25,7 +25,7 @@ services:
       VERSION: 1.19.2
       TYPE: PAPER
       SPIGET_RESOURCES: 64346,91722
-      ICON: https://raw.githubusercontent.com/cecilia-sanare/SelfHosted/main/Icons/cube.png
+      ICON: https://raw.githubusercontent.com/cecilia-sanare/SelfHosted/main/Icons/smp.png
       OVERRIDE_ICON: "TRUE"
       MOTD: Polycule SMP Server
       USE_AIKAR_FLAGS: "TRUE"
@@ -61,14 +61,31 @@ services:
       - /etc/minecraft/modpacks:/modpacks:ro
     networks:
       - minecraft
-  
-  # minecraft-static:
-  #   container_name: minecraft-static
-  #   image: itzg/minecraft-server
-  #   volumes:
-  #     - /etc/minecraft/latest/static:/data
-  #   networks:
-  #     - minecraft
+
+  minecraft-origins:
+    container_name: minecraft-origins
+    image: itzg/minecraft-server
+    expose:
+      - "25565"
+    environment:
+      EULA: "TRUE"
+      OVERRIDE_SERVER_PROPERTIES: "TRUE"
+      SYNC_CHUNK_WRITES: "false"
+      MEMORY: 8G
+      TYPE: FABRIC
+      VERSION: 1.18.2
+      GENERIC_PACK: /modpacks/OriginsSMP7.0.9.zip
+      MOTD: Polycule Origins Server
+      USE_AIKAR_FLAGS: "TRUE"
+      OVERRIDE_OPS: "TRUE"
+    tty: true
+    stdin_open: true
+    restart: unless-stopped
+    volumes:
+      - /etc/minecraft/latest/origins:/data
+      - /etc/minecraft/modpacks:/modpacks:ro
+    networks:
+      - minecraft
 
 networks:
   minecraft: {}
