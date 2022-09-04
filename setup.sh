@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/bash 
+set -euo pipefail
 
 declare -A MODPACKS
 MODPACKS["ATM_7_Server_0.4.29"]="https://mediafiles.forgecdn.net/files/3949/730/Server-Files-0.4.29.zip"
