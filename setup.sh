@@ -7,7 +7,11 @@ if [ -f .env ]; then
     export $(cat .env | xargs)
 fi
 
-mkdir -p $MODPACK_DIR
+mkdir -p $BACKUP_DIR $MODPACK_DIR $SCRIPT_DIR
+cp .env $MINECRAFT_DIR
+cp -R ./scripts/* $SCRIPT_DIR
+
+cat cron.daily | crontab -
 
 for key in ${!MODPACKS[@]}; do
     outputFile="${MODPACK_DIR}/${key}.zip"
@@ -18,5 +22,6 @@ for key in ${!MODPACKS[@]}; do
     fi
 done
 
-cp -R ./configs/infrared/* $INFRARED_DIR
 docker-compose up -d
+
+cp -R ./configs/infrared/* $INFRARED_DIR
