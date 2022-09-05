@@ -3,7 +3,7 @@ set -euo pipefail
 
 declare -A MODPACKS
 MODPACKS["ATM_7_Server_0.4.29"]="https://mediafiles.forgecdn.net/files/3949/730/Server-Files-0.4.29.zip"
-d
+
 if [ -f .env ]; then 
     export $(cat .env | xargs)
 fi
@@ -11,7 +11,7 @@ fi
 mkdir -p $BACKUP_DIR $MODPACK_DIR $SCRIPT_DIR
 cp .env $MINECRAFT_DIR
 cp -R ./scripts/* $SCRIPT_DIR
-# cp -u ./modpacks/*.zip $MODPACK_DIR
+cp -u ./modpacks/*.zip $MODPACK_DIR
 
 cat cron.daily | crontab -
 
@@ -25,6 +25,6 @@ for key in ${!MODPACKS[@]}; do
     fi
 done
 
-docker-compose up -d
+docker-compose up -d --remove-orphans
 
 cp -R ./configs/infrared/* $INFRARED_DIR
