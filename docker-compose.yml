@@ -77,6 +77,7 @@ services:
       GENERIC_PACK: /modpacks/OriginsSMP7.0.9.zip
       MOTD: Polycule Origins Server
       USE_AIKAR_FLAGS: "TRUE"
+      OPS: CeciliaSanare,DaggerDoc
       OVERRIDE_OPS: "TRUE"
     tty: true
     stdin_open: true
