@@ -11,6 +11,8 @@ SERVER_LATEST_DIR=${LATEST_DIR}${SERVER_SHORTHAND}
 
 mkdir -p $SERVER_BACKUP_DIR
 
+../tools/mcrcon.sh $SERVER "say Starting server backup, performance may degrade~"
+
 ../tools/mcrcon.sh $SERVER "save-off"
 
 ../tools/mcrcon.sh $SERVER "save-all"
@@ -18,6 +20,8 @@ mkdir -p $SERVER_BACKUP_DIR
 tar -cvpzf $SERVER_BACKUP_DIR/server-$(date +%F-%H-%M).tar.gz $SERVER_LATEST_DIR
 
 ../tools/mcrcon.sh $SERVER "save-on"
+
+../tools/mcrcon.sh $SERVER "say Backup complete!"
 
 ## Delete older backups
 
