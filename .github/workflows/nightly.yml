@@ -1,16 +1,18 @@
 name: Deploy
 
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron: '0 0 * * *'
 
 jobs:
   main:
-    name: Deploy
+    name: Nightly
     runs-on: ubuntu-latest
-    if: "startsWith(github.event.head_commit.message, 'emergency(')"
     steps:
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.10.0
+        with:
+          access_token: ${{ github.token }}
       - name: Deploy
         uses: appleboy/ssh-action@v0.1.4
         with:
