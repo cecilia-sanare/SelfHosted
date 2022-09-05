@@ -1,5 +1,26 @@
 version: "3"
 
+x-minecraft: &mc
+  image: itzg/minecraft-server:java17-alpine
+  expose:
+    - "25565"
+  tty: true
+  stdin_open: true
+  restart: unless-stopped
+  networks:
+    - minecraft
+
+x-minecraft-environment: &mc-env
+  EULA: "TRUE"
+  OVERRIDE_SERVER_PROPERTIES: "TRUE"
+  SYNC_CHUNK_WRITES: "false"
+  USE_AIKAR_FLAGS: "TRUE"
+  OPS: CeciliaSanare,DaggerDoc
+  OVERRIDE_OPS: "TRUE"
+  REMOVE_OLD_MODS: "TRUE"
+  REMOVE_OLD_MODS_INCLUDE: "*.jar"
+  REMOVE_OLD_MODS_DEPTH: 1
+
 services:
   infrared:
     container_name: infrared
@@ -15,27 +36,18 @@ services:
     restart: unless-stopped
   
   minecraft-smp:
+    <<: *mc
     container_name: minecraft-smp
-    image: itzg/minecraft-server:java17-alpine
-    expose:
-      - "25565"
     environment:
-      EULA: "TRUE"
-      OVERRIDE_SERVER_PROPERTIES: "TRUE"
+      <<: *mc-env
       VERSION: 1.19.2
       TYPE: PAPER
       SPIGET_RESOURCES: 64346,91722
       ICON: https://raw.githubusercontent.com/cecilia-sanare/SelfHosted/main/Icons/smp.png
       OVERRIDE_ICON: "TRUE"
       MOTD: Polycule SMP Server
-      USE_AIKAR_FLAGS: "TRUE"
-    tty: true
-    stdin_open: true
-    restart: unless-stopped
     volumes:
       - /etc/minecraft/latest/smp:/data
-    networks:
-      - minecraft
   
   minecraft-atm:
     container_name: minecraft-atm
@@ -63,30 +75,18 @@ services:
       - minecraft
 
   minecraft-origins:
+    <<: *mc
     container_name: minecraft-origins
-    image: itzg/minecraft-server
-    expose:
-      - "25565"
     environment:
-      EULA: "TRUE"
-      OVERRIDE_SERVER_PROPERTIES: "TRUE"
-      SYNC_CHUNK_WRITES: "false"
+      <<: *mc-env
       MEMORY: 8G
       TYPE: FABRIC
       VERSION: 1.18.2
       GENERIC_PACK: /modpacks/OriginsSMP7.0.9.zip
       MOTD: Polycule Origins Server
-      USE_AIKAR_FLAGS: "TRUE"
-      OPS: CeciliaSanare,DaggerDoc
-      OVERRIDE_OPS: "TRUE"
-    tty: true
-    stdin_open: true
-    restart: unless-stopped
     volumes:
       - /etc/minecraft/latest/origins:/data
       - /etc/minecraft/modpacks:/modpacks:ro
-    networks:
-      - minecraft
 
 networks:
   minecraft: {}
