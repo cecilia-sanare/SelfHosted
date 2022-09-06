@@ -12,6 +12,7 @@ mkdir -p $BACKUP_DIR $MODPACK_DIR $SCRIPT_DIR
 cp .env $MINECRAFT_DIR
 cp -R ./scripts/* $SCRIPT_DIR
 cp -uv ./modpacks/*.zip $MODPACK_DIR
+chmod -R minecraft:docker $MODPACK_DIR
 
 cat cron.daily | crontab -
 
@@ -19,8 +20,10 @@ for key in ${!MODPACKS[@]}; do
     outputFile="${MODPACK_DIR}/${key}.zip"
     echo "Checking if $key exists ..."
     if [ ! -f $outputFile ]; then
-        echo "Downloading modpack from: ${MODPACKS[${key}]} ..."
-        curl ${MODPACKS[${key}]} --output $outputFile
+        modpackUrl=${MODPACKS[${key}]}
+        # TODO: Implment Mega Support for URLs
+        echo "Downloading modpack from: $modpackUrl ..."
+        curl $modpackUrl --output $outputFile
         chown minecraft:docker $outputFile
     fi
 done

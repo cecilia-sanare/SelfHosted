@@ -70,9 +70,9 @@ services:
     environment:
       <<: *mc-env
       MEMORY: 8G
-      TYPE: FABRIC
-      VERSION: 1.18.2
-      GENERIC_PACK: /modpacks/OriginsSMP7.0.9.zip
+      TYPE: QUILT
+      VERSION: 1.19
+      GENERIC_PACK: /modpacks/TemmiesOriginServer-0.1.0.zip
       MOTD: Polycule Origins Server
     volumes:
       - /etc/minecraft/latest/origins:/data
