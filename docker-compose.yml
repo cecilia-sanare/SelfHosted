@@ -20,6 +20,7 @@ x-minecraft-environment: &mc-env
   REMOVE_OLD_MODS: "TRUE"
   REMOVE_OLD_MODS_INCLUDE: "*.jar"
   REMOVE_OLD_MODS_DEPTH: 1
+  REMOVE_OLD_MODS_EXCLUDE: ""
 
 services:
   infrared:
