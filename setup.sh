@@ -12,7 +12,7 @@ mkdir -p $BACKUP_DIR $MODPACK_DIR $SCRIPT_DIR
 cp .env $MINECRAFT_DIR
 cp -R ./scripts/* $SCRIPT_DIR
 cp -uv ./modpacks/*.zip $MODPACK_DIR
-chmod -R minecraft:docker $MODPACK_DIR
+chown -R minecraft:docker $MODPACK_DIR
 
 cat cron.daily | crontab -
 
