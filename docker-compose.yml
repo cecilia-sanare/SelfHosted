@@ -22,6 +22,11 @@ x-minecraft-environment: &mc-env
   REMOVE_OLD_MODS_DEPTH: 1
   REMOVE_OLD_MODS_EXCLUDE: ""
 
+x-minecraft-whitelist: &mc-env-wl
+  WHITELIST: "CeciliaSanare,DaggerDoc,_MRCY"
+  ENFORCE_WHITELIST: "TRUE"
+  OVERRIDE_WHITELIST: "TRUE"
+
 services:
   infrared:
     container_name: infrared
@@ -70,12 +75,17 @@ services:
     container_name: minecraft-origins
     environment:
       <<: *mc-env
+      <<: *mc-env-wl
       MEMORY: 8G
       TYPE: FABRIC
       VERSION: 1.19.2
-      GENERIC_PACK: /modpacks/TemmiesOriginServer-0.1.0.zip
+      GENERIC_PACKS: "TemmiesOriginsServerConfig-0.1.0,/modpacks/TemmiesOriginsServer-0.1.0"
+      GENERIC_PACKS_PREFIX: "/modpacks/"
+      GENERIC_PACKS_SUFFIX: ".zip"
       MOTD: Polycule Origins Server
-      SEED: "-6156731427653336239"
+      ICON: https://raw.githubusercontent.com/cecilia-sanare/SelfHosted/main/Icons/origins.png
+      OVERRIDE_ICON: "TRUE"
+      SEED: "2830351026098010116"
     volumes:
       - /etc/minecraft/latest/origins:/data
       - /etc/minecraft/modpacks:/modpacks:ro

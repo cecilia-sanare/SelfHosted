@@ -9,8 +9,8 @@ if [ -f .env ]; then
 fi
 
 mkdir -p $BACKUP_DIR $MODPACK_DIR $SCRIPT_DIR
-cp .env $MINECRAFT_DIR
-cp -R ./scripts/* $SCRIPT_DIR
+cp -u .env $MINECRAFT_DIR
+cp -uR ./scripts/* $SCRIPT_DIR
 cp -uv ./modpacks/*.zip $MODPACK_DIR
 chown -R minecraft:docker $MODPACK_DIR
 
@@ -30,4 +30,4 @@ done
 
 docker-compose up -d --remove-orphans
 
-cp -R ./configs/infrared/* $INFRARED_DIR
+cp -uR ./configs/infrared/* $INFRARED_DIR
