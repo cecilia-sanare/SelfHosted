@@ -24,7 +24,7 @@ for key in ${!MODPACKS[@]}; do
         modpackUrl=$(./scripts/tools/sanitize.sh ${MODPACKS[${key}]})
         echo "Downloading modpack from: $modpackUrl ..."
         if [[ $modpackUrl == "https://mega.nz"* ]]; then
-            (cd $MODPACK_DIR && megadl "${${MODPACK_URL/\\#/!}/file\//#!}")
+            (cd $MODPACK_DIR && megadl $modpackUrl)
         else
             curl $modpackUrl --output $outputFile
             chown minecraft:docker $outputFile
