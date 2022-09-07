@@ -75,7 +75,7 @@ services:
     container_name: minecraft-origins
     environment:
       <<: *mc-env
-      <<: *mc-env-wl
+      ENABLE_COMMAND_BLOCK: "TRUE"
       MEMORY: 8G
       TYPE: FABRIC
       VERSION: 1.19.2
