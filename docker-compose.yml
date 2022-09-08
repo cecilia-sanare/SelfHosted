@@ -80,7 +80,7 @@ services:
       MEMORY: 8G
       TYPE: FABRIC
       VERSION: 1.19.2
-      GENERIC_PACKS: "TemmiesOriginsServerConfig-0.1.0,TemmiesOriginsServerMods-0.1.0"
+      GENERIC_PACKS: "TemmiesOriginsServerConfig-0.1.1,TemmiesOriginsServerMods-0.1.1"
       GENERIC_PACKS_PREFIX: "/modpacks/"
       GENERIC_PACKS_SUFFIX: ".zip"
       MOTD: Polycule Origins Server
