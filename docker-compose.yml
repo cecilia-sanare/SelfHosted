@@ -21,6 +21,7 @@ x-minecraft-environment: &mc-env
   REMOVE_OLD_MODS_INCLUDE: "*.jar"
   REMOVE_OLD_MODS_DEPTH: 1
   REMOVE_OLD_MODS_EXCLUDE: ""
+  SPAWN_PROTECTION: "0"
 
 x-minecraft-whitelist: &mc-env-wl
   WHITELIST: "CeciliaSanare,DaggerDoc,_MRCY"
