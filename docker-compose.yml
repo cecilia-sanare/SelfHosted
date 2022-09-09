@@ -32,8 +32,8 @@ services:
   infrared:
     container_name: infrared
     image: haveachin/infrared:latest
-    ports:
-      - "25565:25565/tcp"
+    # ports:
+    #   - "25565:25565/tcp"
     expose:
       - "25565"
     networks:
@@ -74,6 +74,8 @@ services:
   minecraft-origins:
     <<: *mc
     container_name: minecraft-origins
+    ports:
+      - "25565:25565/tcp"
     environment:
       <<: *mc-env
       ENABLE_COMMAND_BLOCK: "TRUE"
