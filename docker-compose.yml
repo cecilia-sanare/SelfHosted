@@ -41,6 +41,7 @@ services:
       - minecraft
     volumes:
       - ${INFRARED_DIR}:/configs
+      - "/var/run/docker.sock:/var/run/docker.sock"
     restart: unless-stopped
   
   minecraft-smp:
