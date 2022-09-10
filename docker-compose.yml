@@ -22,6 +22,7 @@ x-minecraft-environment: &mc-env
   REMOVE_OLD_MODS_DEPTH: 1
   REMOVE_OLD_MODS_EXCLUDE: ""
   SPAWN_PROTECTION: "0"
+  GH_TOKEN: ${RUNTIME_GH_TOKEN}
 
 x-minecraft-whitelist: &mc-env-wl
   WHITELIST: "33ceed63-2539-4725-ad93-8c869aaf551e,fa8032ed-8b1f-4fad-a09c-0fe685332a46,d288f246-4197-4bc5-8d5e-a439a171b945"
@@ -82,9 +83,7 @@ services:
       MEMORY: 8G
       TYPE: FABRIC
       VERSION: 1.19.2
-      GENERIC_PACKS: "TemmiesOriginsServerConfig-0.1.1,TemmiesOriginsServerMods-0.1.1"
-      GENERIC_PACKS_PREFIX: "/modpacks/"
-      GENERIC_PACKS_SUFFIX: ".zip"
+      PACKWIZ_URL: https://raw.githubusercontent.com/cecilia-sanare/TemmiesOrigins/v0.1.0/pack.toml
       MOTD: Polycule Origins Server
       ICON: https://raw.githubusercontent.com/cecilia-sanare/SelfHosted/main/Icons/origins.png
       OVERRIDE_ICON: "TRUE"

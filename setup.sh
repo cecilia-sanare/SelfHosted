@@ -10,8 +10,10 @@ if [ -f .env ]; then
     export $(cat .env | xargs)
 fi
 
-./scripts/tools/mcrcon.sh minecraft-origins "say Deployment in progress, server may go down momentarily..."
-sleep 10
+if [ "$(docker ps -aq -f status=running -f name=minecraft-origins)" ]; then
+    ./scripts/tools/mcrcon.sh minecraft-origins "say Deployment in progress, server may go down momentarily..."
+    sleep 10
+fi
 
 mkdir -p $BACKUP_DIR $MODPACK_DIR $SCRIPT_DIR
 cp -u .env $MINECRAFT_DIR
