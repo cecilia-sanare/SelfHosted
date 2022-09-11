@@ -4,12 +4,14 @@ on:
   push:
     branches:
       - main
+  schedule:
+    - cron: '0 5 * * *'
 
 jobs:
   main:
     name: Deploy
     runs-on: ubuntu-latest
-    if: "startsWith(github.event.head_commit.message, 'emergency(')"
+    if: ${{ startsWith(github.event.head_commit.message, 'emergency(') || github.event_name == 'schedule' }}
     steps:
       - name: Deploy
         uses: appleboy/ssh-action@v0.1.4
