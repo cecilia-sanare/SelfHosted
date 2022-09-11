@@ -21,5 +21,6 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           script_stop: true
           script: |
+            export RUNTIME_GH_TOKEN=${{ secrets.RUNTIME_GH_TOKEN }}
             git -C SelfHosted fetch && git -C SelfHosted reset --hard origin/main || git clone https://github.com/cecilia-sanare/SelfHosted.git
             (cd SelfHosted && ./setup.sh)
