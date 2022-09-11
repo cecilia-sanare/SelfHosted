@@ -80,7 +80,7 @@ services:
     environment:
       <<: *mc-env
       ENABLE_COMMAND_BLOCK: "TRUE"
-      MEMORY: 8G
+      MEMORY: 16G
       TYPE: FABRIC
       VERSION: 1.19.2
       PACKWIZ_URL: https://raw.githubusercontent.com/cecilia-sanare/TemmiesOrigins/v0.1.2/pack.toml
