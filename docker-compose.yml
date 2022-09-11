@@ -83,7 +83,7 @@ services:
       MEMORY: 8G
       TYPE: FABRIC
       VERSION: 1.19.2
-      PACKWIZ_URL: https://raw.githubusercontent.com/cecilia-sanare/TemmiesOrigins/v0.1.0/pack.toml
+      PACKWIZ_URL: https://raw.githubusercontent.com/cecilia-sanare/TemmiesOrigins/v0.1.1/pack.toml
       MOTD: Polycule Origins Server
       ICON: https://raw.githubusercontent.com/cecilia-sanare/SelfHosted/main/Icons/origins.png
       OVERRIDE_ICON: "TRUE"
