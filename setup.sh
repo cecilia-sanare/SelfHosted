@@ -11,7 +11,7 @@ if [ -f .env ]; then
 fi
 
 if [ "$(docker ps -aq -f status=running -f name=minecraft-origins)" ]; then
-    ./scripts/tools/mcrcon.sh minecraft-origins "say Deployment in progress, server may go down momentarily..."
+    ./scripts/tools/mcrcon.sh minecraft-origins "say Deployment in progress, server may go down momentarily..." || true
     sleep 10
 fi
 
