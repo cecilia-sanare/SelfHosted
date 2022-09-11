@@ -23,6 +23,7 @@ x-minecraft-environment: &mc-env
   REMOVE_OLD_MODS_EXCLUDE: ""
   SPAWN_PROTECTION: "0"
   GH_TOKEN: ${RUNTIME_GH_TOKEN}
+  MAX_TICK_TIME: 120000
 
 x-minecraft-whitelist: &mc-env-wl
   WHITELIST: "33ceed63-2539-4725-ad93-8c869aaf551e,fa8032ed-8b1f-4fad-a09c-0fe685332a46,d288f246-4197-4bc5-8d5e-a439a171b945"
