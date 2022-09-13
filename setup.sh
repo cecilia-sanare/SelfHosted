@@ -3,8 +3,6 @@ set -euo pipefail
 
 declare -A MODPACKS
 MODPACKS["ATM_7_Server_0.4.29"]="https://mediafiles.forgecdn.net/files/3949/730/Server-Files-0.4.29.zip"
-MODPACKS["TemmiesOriginsServerMods-0.1.1"]="https://mega.nz/file/cD11RILS#035IkBxRtRiyKSeC1XGVI00hLAC6qsh571K9x4R5I6Q"
-MODPACKS["TemmiesOriginsServerConfig-0.1.1"]="https://mega.nz/file/hLV2nLYb#FIUnoeRjimje4-uA2M3fOcHGFyNhVuX8L0GHXqcclpo"
 
 if [ -f .env ]; then 
     export $(cat .env | xargs)

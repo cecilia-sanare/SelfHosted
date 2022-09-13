@@ -54,7 +54,7 @@ services:
       VERSION: 1.19.2
       TYPE: PAPER
       SPIGET_RESOURCES: 64346,91722
-      ICON: https://raw.githubusercontent.com/cecilia-sanare/SelfHosted/main/Icons/smp.png
+      ICON: https://raw.githubusercontent.com/cecilia-sanare/SelfHosted/main/assets/icons/smp.png
       OVERRIDE_ICON: "TRUE"
       MOTD: Polycule SMP Server
     volumes:
@@ -86,7 +86,7 @@ services:
       VERSION: 1.19.2
       PACKWIZ_URL: https://raw.githubusercontent.com/cecilia-sanare/TemmiesOrigins/v0.1.9/pack.toml
       MOTD: Polycule Origins Server
-      ICON: https://raw.githubusercontent.com/cecilia-sanare/SelfHosted/main/Icons/origins.png
+      ICON: https://raw.githubusercontent.com/cecilia-sanare/SelfHosted/main/assets/icons/origins.png
       OVERRIDE_ICON: "TRUE"
       SEED: "2830351026098010116"
     volumes:
