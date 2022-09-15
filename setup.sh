@@ -35,7 +35,6 @@ for key in ${!MODPACKS[@]}; do
     fi
 done
 
-docker-compose pull
 docker-compose up -d --remove-orphans minecraft-origins
 
 cp -uR ./configs/infrared/* $INFRARED_DIR
