@@ -9,7 +9,7 @@ if [ -f .env ]; then
 fi
 
 if [ "$(docker ps -aq -f status=running -f name=minecraft-origins)" ]; then
-    ./scripts/tools/mcrcon.sh minecraft-origins "say Deployment in progress, server may go down momentarily..." 2>/dev/null
+    ./scripts/tools/mcrcon.sh minecraft-origins "say Deployment in progress, server may go down momentarily..." >/dev/null 2>&1 || true
     sleep 10
 fi
 
@@ -35,6 +35,7 @@ for key in ${!MODPACKS[@]}; do
     fi
 done
 
+docker-compose pull
 docker-compose up -d --remove-orphans minecraft-origins
 
 cp -uR ./configs/infrared/* $INFRARED_DIR
