@@ -84,7 +84,7 @@ services:
       MEMORY: 16G
       TYPE: FABRIC
       VERSION: 1.19.2
-      PACKWIZ_URL: https://raw.githubusercontent.com/temmies-origins/temmies-origins-modpack/0e56c657f5541582adad9f6948e75b376e795f5b/pack.toml
+      PACKWIZ_URL: https://raw.githubusercontent.com/temmies-origins/temmies-origins-modpack/v0.1.12/pack.toml
       MODRINTH_PROJECTS: dcintegration
       MOTD: Polycule Origins Server
       ICON: https://raw.githubusercontent.com/cecilia-sanare/SelfHosted/main/assets/icons/origins.png
