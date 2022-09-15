@@ -85,6 +85,7 @@ services:
       TYPE: FABRIC
       VERSION: 1.19.2
       PACKWIZ_URL: https://raw.githubusercontent.com/temmies-origins/temmies-origins-modpack/v0.1.12/pack.toml
+      MODRINTH_PROJECTS: dcintegration
       MOTD: Polycule Origins Server
       ICON: https://raw.githubusercontent.com/cecilia-sanare/SelfHosted/main/assets/icons/origins.png
       OVERRIDE_ICON: "TRUE"
