@@ -65,7 +65,7 @@ services:
     container_name: minecraft-atm
     environment:
       <<: *mc-env
-      MEMORY: 16G
+      MEMORY: 8G
       TYPE: FORGE
       VERSION: 1.18.2
       FORGEVERSION: 40.1.68
@@ -81,7 +81,7 @@ services:
     environment:
       <<: *mc-env
       ENABLE_COMMAND_BLOCK: "TRUE"
-      MEMORY: 16G
+      MEMORY: 8G
       TYPE: FABRIC
       FABRIC_LAUNCHER_VERSION: 0.11.1
       FABRIC_LOADER_VERSION: 0.14.9
@@ -89,8 +89,8 @@ services:
       PACKWIZ_URL: https://raw.githubusercontent.com/temmies-origins/temmies-origins-modpack/v0.1.14/pack.toml
       MODRINTH_PROJECTS: dcintegration,passive-endermen
       MOTD: Polycule Origins Server
-      # ICON: https://raw.githubusercontent.com/cecilia-sanare/SelfHosted/main/assets/icons/origins.png
-      # OVERRIDE_ICON: "TRUE"
+      ICON: https://raw.githubusercontent.com/cecilia-sanare/SelfHosted/main/assets/icons/origins.png
+      OVERRIDE_ICON: "TRUE"
       SEED: "2830351026098010116"
     volumes:
       - /etc/minecraft/latest/origins:/data
