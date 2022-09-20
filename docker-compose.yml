@@ -53,7 +53,7 @@ services:
       <<: *mc-env
       VERSION: 1.19.2
       TYPE: PAPER
-      SPIGET_RESOURCES: 64346,91722
+      SPIGET_RESOURCES: 64346,91722,102902
       ICON: https://raw.githubusercontent.com/cecilia-sanare/SelfHosted/main/assets/icons/smp.png
       OVERRIDE_ICON: "TRUE"
       MOTD: Polycule SMP Server
