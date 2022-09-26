@@ -22,5 +22,5 @@ jobs:
           script_stop: true
           script: |
             export RUNTIME_GH_TOKEN=${{ secrets.RUNTIME_GH_TOKEN }}
-            git -C servers fetch && git -C servers reset --hard origin/main || git clone https://github.com/cecilia-sanare/servers.git
+            git -C servers fetch && git -C servers reset --hard origin/main || git clone https://github.com/rain-cafe-mc/servers.git
             (cd servers && ./setup.sh)
