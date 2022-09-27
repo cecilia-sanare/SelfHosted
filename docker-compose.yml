@@ -54,7 +54,7 @@ services:
       VERSION: 1.19.2
       TYPE: PAPER
       SPIGET_RESOURCES: 64346,91722,102902
-      ICON: https://raw.githubusercontent.com/cecilia-sanare/servers/main/assets/icons/smp.png
+      ICON: https://raw.githubusercontent.com/rain-cafe-mc/servers/main/assets/icons/smp.png
       OVERRIDE_ICON: "TRUE"
       MOTD: Polycule SMP Server
     volumes:
@@ -86,10 +86,10 @@ services:
       FABRIC_LAUNCHER_VERSION: 0.11.1
       FABRIC_LOADER_VERSION: 0.14.9
       VERSION: 1.19.2
-      PACKWIZ_URL: https://raw.githubusercontent.com/temmies-origins/temmies-origins-modpack/v0.1.14/pack.toml
+      PACKWIZ_URL: https://raw.githubusercontent.com/rain-cafe-mc/temmies-origins-modpack/v0.1.14/pack.toml
       MODRINTH_PROJECTS: dcintegration,passive-endermen
       MOTD: Polycule Origins Server
-      ICON: https://raw.githubusercontent.com/cecilia-sanare/servers/main/assets/icons/origins.png
+      ICON: https://raw.githubusercontent.com/rain-cafe-mc/servers/main/assets/icons/origins.png
       OVERRIDE_ICON: "TRUE"
       SEED: "2830351026098010116"
     volumes:
