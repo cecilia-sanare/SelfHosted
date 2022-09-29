@@ -13,6 +13,9 @@ x-minecraft: &mc
 x-minecraft-environment: &mc-env
   EULA: "TRUE"
   OVERRIDE_SERVER_PROPERTIES: "TRUE"
+  WHITELIST: "33ceed63-2539-4725-ad93-8c869aaf551e,fa8032ed-8b1f-4fad-a09c-0fe685332a46,d288f246-4197-4bc5-8d5e-a439a171b945"
+  ENFORCE_WHITELIST: "TRUE"
+  OVERRIDE_WHITELIST: "TRUE"
   SYNC_CHUNK_WRITES: "false"
   USE_AIKAR_FLAGS: "TRUE"
   OPS: 33ceed63-2539-4725-ad93-8c869aaf551e,fa8032ed-8b1f-4fad-a09c-0fe685332a46,d288f246-4197-4bc5-8d5e-a439a171b945
@@ -24,11 +27,6 @@ x-minecraft-environment: &mc-env
   SPAWN_PROTECTION: "0"
   GH_TOKEN: ${RUNTIME_GH_TOKEN}
   MAX_TICK_TIME: 120000
-
-x-minecraft-whitelist: &mc-env-wl
-  WHITELIST: "33ceed63-2539-4725-ad93-8c869aaf551e,fa8032ed-8b1f-4fad-a09c-0fe685332a46,d288f246-4197-4bc5-8d5e-a439a171b945"
-  ENFORCE_WHITELIST: "TRUE"
-  OVERRIDE_WHITELIST: "TRUE"
 
 services:
   infrared:
@@ -45,20 +43,6 @@ services:
       - ${INFRARED_DIR}:/configs
       - "/var/run/docker.sock:/var/run/docker.sock"
     restart: unless-stopped
-  
-  minecraft-smp:
-    <<: *mc
-    container_name: minecraft-smp
-    environment:
-      <<: *mc-env
-      VERSION: 1.19.2
-      TYPE: PAPER
-      SPIGET_RESOURCES: 64346,91722,102902
-      ICON: https://raw.githubusercontent.com/rain-cafe-mc/servers/main/assets/icons/smp.png
-      OVERRIDE_ICON: "TRUE"
-      MOTD: Polycule SMP Server
-    volumes:
-      - /etc/minecraft/latest/smp:/data
   
   minecraft-atm:
     <<: *mc
