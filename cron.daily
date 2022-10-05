@@ -22,10 +22,6 @@
 #
 # m h  dom mon dow   command
 # Daily Notified Restarts
-0 11 * * * /etc/minecraft/scripts/cron/restart.sh minecraft-smp
-5 11 * * * /etc/minecraft/scripts/cron/restart.sh minecraft-atm 10
-15 11 * * * /etc/minecraft/scripts/cron/restart.sh minecraft-origins 10
+0 11 * * * /etc/minecraft/scripts/cron/restart.sh minecraft-origins 10
 # Regular Backups
-0 10 * * * /etc/minecraft/scripts/cron/backup.sh minecraft-smp
-10 10 * * * /etc/minecraft/scripts/cron/backup.sh minecraft-atm
-20 10 * * * /etc/minecraft/scripts/cron/backup.sh minecraft-origins
+0 10 * * * /etc/minecraft/scripts/cron/backup.sh minecraft-origins
